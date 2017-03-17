@@ -1,3 +1,3 @@
 # c_com
 
-diego rivas
+diego rivas valdez
