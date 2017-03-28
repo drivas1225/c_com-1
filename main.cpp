@@ -17,6 +17,29 @@ float circulo (float r){
 
 }
 
+void mayor (float x,float y){
+
+    if(x==y)
+    cout<<"\n Son iguales";
+    else
+    {
+    if(x>y)
+    cout<<"\n el mayor es:"<<x;
+    else
+    cout<<"\n el mayor es:"<<y;
+    }
+
+}
+
+void swap_num (float & x , float & y){
+
+    double tem;
+    tem=x;
+    x=y;
+    y=tem;
+
+}
+
 
 
 
@@ -70,31 +93,21 @@ int main()
     cout<< "x="<<x<<endl;
     cout<< "y="<<y<<endl;
 
-   /* tem=x;
-    x=y;
-    y=tem;
+    swap_num(x,y);
 
-    */
-    x=x+y;
+    cout<< "x="<<x<<endl;
+    cout<< "y="<<y<<endl;
+
+
+ /*   x=x+y;
     y=x-y;
     x=x-y;
-
+*/
     /*cout<< "despues del cambio"<<endl;
     cout<< "x="<<x<<endl;
     cout<< "y="<<y<<endl;
 
 */
-
-    if(x==y)
-        cout<< x<<" es igual "<<y<<endl;
-
-    if(x>y)
-        cout<< x<<" es mayor que "<<y<<endl;
-
-    if(x<y)
-        cout<< y<<" es mayor que "<<x<<endl;
-
-
 
 
 
