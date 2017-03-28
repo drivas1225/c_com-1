@@ -80,7 +80,7 @@ int main()
 //////////////////////////////////////////
 
 */
-
+/*
     float x;
     float y;
     //float tem;
@@ -98,7 +98,7 @@ int main()
     cout<< "x="<<x<<endl;
     cout<< "y="<<y<<endl;
 
-
+*/
  /*   x=x+y;
     y=x-y;
     x=x-y;
@@ -108,6 +108,39 @@ int main()
     cout<< "y="<<y<<endl;
 
 */
+
+
+ /*   int a=5;
+    int b=6;
+    int z;
+
+    if (a>b)
+        z=a;
+    else
+        z=b;
+
+    z=(a>b)?a:b;
+
+
+    cout<<"ingresar a"<<endl;
+    cin>>a;
+    cout<<"ingresar b"<<endl;
+    cin>>b;
+
+    cout<<"el mayour es "<<(z=(a>b)?a:b)<<endl;
+*/
+    int score[5];
+
+    for(int i =0 ; i < (sizeof(score)/sizeof(score[0])) ;i++){
+        score[i] = i;
+        cout<<score[i]<<endl;
+    }
+
+
+
+
+
+
 
 
 
