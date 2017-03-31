@@ -129,12 +129,96 @@ int main()
 
     cout<<"el mayour es "<<(z=(a>b)?a:b)<<endl;
 */
-    int score[5];
+    int arreglo[10];
 
-    for(int i =0 ; i < (sizeof(score)/sizeof(score[0])) ;i++){
-        score[i] = i;
-        cout<<score[i]<<endl;
+/*    int tem;
+    cout<<"ingresar numero"<<endl;
+    cin>>tem;
+    arreglo[0]=tem;
+    cout<<"ingresar numero"<<endl;
+    cin>>tem;
+    arreglo[1]=tem;
+    cout<<"ingresar numero"<<endl;
+    cin>>tem;
+    arreglo[2]=tem;
+    cout<<"ingresar numero"<<endl;
+    cin>>tem;
+    arreglo[3]=tem;
+
+    cout<<arreglo[0]<<" "<<arreglo[1]<<" "<<arreglo[2]<<" "<<arreglo[3]<<endl;
+
+    int tem2;
+    tem2=arreglo[0];
+    arreglo[0]=arreglo[3];
+    arreglo[3]=tem2;
+    tem2=arreglo[1];
+    arreglo[1]=arreglo[2];
+    arreglo[2]=tem2;
+
+    cout<<arreglo[0]<<" "<<arreglo[1]<<" "<<arreglo[2]<<" "<<arreglo[3]<<endl;
+
+
+*/
+
+
+    for(int i =0 ; i < (sizeof(arreglo)/sizeof(arreglo[0])) ;i++){
+        int p;
+        cout<<"ingresar numero"<<endl;
+        cin>>p;
+        arreglo[i] = p;
+
     }
+    for(int i =0 ; i < (sizeof(arreglo)/sizeof(arreglo[0])) ;i++){
+        cout<<arreglo[i];
+
+    }
+
+    int tam;
+    tam=(sizeof(arreglo)/sizeof(arreglo[0]));
+    int p;
+/*
+
+    for(int i =0 ; i < (tam/2);i++){
+        p=arreglo[i];
+        arreglo[i]=arreglo[tam-1-i];
+        arreglo[tam-1-i] = p;
+    }
+
+    cout<<endl<<endl;
+
+    for(int i =0 ; i < (sizeof(arreglo)/sizeof(arreglo[0])) ;i++){
+        cout<<arreglo[i];
+
+    }
+*/
+
+cout<<endl <<endl;
+
+    int sum=0;
+
+    for(int i =0 ; i <tam;i++){
+        sum = sum + arreglo[i];
+    }
+
+    cout<<sum<<endl<<endl;
+
+    int may=0;
+    int mayt;
+
+    for(int i = 0 ; i<(tam-1);i++){
+
+        if (arreglo[i]>arreglo[i+1])
+            mayt=arreglo[i];
+        else
+            mayt=arreglo[i+1];
+
+        if(mayt>may)
+                may=mayt;
+    }
+
+    cout<< may<<endl;
+
+
 
 
 
