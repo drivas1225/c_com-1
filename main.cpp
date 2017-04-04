@@ -40,11 +40,72 @@ void swap_num (float & x , float & y){
 
 }
 
+bool es_primo (int x){
+
+    int i = 2;
+    bool res =true;
+
+    while( i<x ){
+        if( x%i == 0 ){
+            res = res && false;
+            break;
+        }
+        else
+            res = res && true;
+        i++;
+    }
+    return res;
+}
+
 
 
 
 int main()
 {
+
+    int prim;
+    cout<<"ingresar el rando de numero primos"<<endl;
+    cin>>prim;
+    int cont = 0;
+
+
+
+    for(int i = 2 ; i < prim ; i++){
+
+        if (es_primo(i)==true){
+            cout<< i<<" ";
+            cont++;
+        }
+    }
+
+    cout<<endl;
+
+    //cout<<cont;
+
+    /*int a_prim[cont];
+
+    int y=0;
+
+    for(int i = 2 ; i < prim ; i++){
+
+        if (es_primo(i)==true)
+            a_prim[y] = i;
+            y++;
+
+    }
+
+    int j;
+    cout<< "posicion"<<endl;
+    cin>>j;
+    cout<<a_prim[j];
+
+*/
+
+
+
+
+
+
 
 
 /*
@@ -129,7 +190,7 @@ int main()
 
     cout<<"el mayour es "<<(z=(a>b)?a:b)<<endl;
 */
-    int arreglo[10];
+    //int arreglo[10];
 
 /*    int tem;
     cout<<"ingresar numero"<<endl;
@@ -161,7 +222,7 @@ int main()
 */
 
 
-    for(int i =0 ; i < (sizeof(arreglo)/sizeof(arreglo[0])) ;i++){
+/*    for(int i =0 ; i < (sizeof(arreglo)/sizeof(arreglo[0])) ;i++){
         int p;
         cout<<"ingresar numero"<<endl;
         cin>>p;
@@ -191,7 +252,7 @@ int main()
 
     }
 */
-
+/*
 cout<<endl <<endl;
 
     int sum=0;
@@ -219,7 +280,7 @@ cout<<endl <<endl;
     cout<< may<<endl;
 
 
-
+*/
 
 
 
