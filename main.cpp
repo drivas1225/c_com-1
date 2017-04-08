@@ -57,13 +57,118 @@ bool es_primo (int x){
     return res;
 }
 
+int sum(const int arr[], const int tam){
+    int suma = 0;
+    for(int i =0 ; i < tam ; i++ ){
+        suma = suma + arr[i];
+    }
+
+    return suma;
+}
+
+
+float prom(const int arr[], const int tam){
+
+    return (float)sum(arr,tam)/tam;
+}
+
+void invert(int arr[], const int tam){
+
+    int p;
+    for(int i =0 ; i < (tam/2);i++){
+        p=arr[i];
+        arr[i]=arr[tam-1-i];
+        arr[tam-1-i] = p;
+    }
+
+}
+
+void ord_arr(int arr[], const int tam){
+
+     for(int i = 0 ; i<tam;i++){
+         for(int j = i; j<tam;j++){
+            if(arr[j]<arr[i]){
+                int tem;
+                tem = arr[i];
+                arr[i]=arr[j];
+                arr[j]=tem;
+            }
+
+         }
+
+    }
+
+}
+
+int tam_a(char arr[]){
+
+    int tam=0;
+    for( int i =0 ; arr[i] != '\0';i++){
+        tam=tam+1;
+
+    }
+    return tam;
+
+}
+
 
 
 
 int main()
 {
 
-    int prim;
+    char arr[] = "hello";
+    cout<<tam_a(arr);
+
+    /*int tam;
+    cout<<"ingresar el tamaño:"<<endl;
+    cin>>tam;
+    int arreglo[tam];
+    int suma;
+    int pro;
+
+
+    for(int i =0 ; i < tam ;i++){
+        int p;
+        cout<<"ingresar numero"<<endl;
+        cin>>p;
+        arreglo[i] = p;
+
+
+    }
+
+    for(int i =0 ; i < tam ;i++){
+        cout<<arreglo[i];
+
+    }
+
+    cout<<endl;*/
+
+
+    /*suma = sum(arreglo,tam);
+    pro = prom(arreglo,tam);
+
+    cout<< "la suma del arreglo es:"<< suma <<endl;
+    cout<< "el promedio de los elementos es:"<<pro<< endl;
+
+    */
+
+    /*invert(arreglo,tam);
+
+
+    for(int i =0 ; i < tam ;i++){
+        cout<<arreglo[i];
+
+    }*/
+
+   /* ord_arr(arreglo,tam);
+
+    for(int i =0 ; i < tam ;i++){
+        cout<<arreglo[i];
+
+    }*/
+
+   /* int prim;
     cout<<"ingresar el rando de numero primos"<<endl;
     cin>>prim;
     int cont = 0;
@@ -76,9 +181,10 @@ int main()
             cout<< i<<" ";
             cont++;
         }
-    }
+    }*/
 
-    cout<<endl;
+
+    //cout<<endl;
 
     //cout<<cont;
 
