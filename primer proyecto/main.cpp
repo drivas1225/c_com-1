@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -98,51 +99,113 @@ void swap_pun (int * x , int * y){
 
 
 }
-void mul_mat(int mat1[][3], int mat2[][3],int fil1,int col1,int fil2,int col2){
 
-    if (col1 != fil2)
-        cout<<"no se puede hacer la multiplicacion :(";
-        return ;
-
-    int ret[fil1][col2];
-    for (int i = 0 ;i < fil1;i++){
-        for (int j = 0; j < col2;j++){
-            ret[i][j]=0;
-            for(int k = 0 ; k < col1; k++){
-                ret[i][j]=ret[i][j]+(mat1[i][k]*mat2[k][j]);
+void multiplicacion ( int v1[][3] , int v2[][3] ,int v3[][3], int f1 ,int c1 , int f2 , int c2){
+    for (int i = 0 ; i < f1 ; i++ ){
+        for (int j = 0 ; i < c2 ; j++)
+            for (int k = 0 ; k < f2 ; k++ ){
+                v3[i][j] += v1[i][k] * v2[k][j];
             }
-        }
     }
 
-    for (int i = 0 ; i<fil1;i++){
-        for (int j = 0 ; j < col2;j++){
-            cout<< ret[i][j] <<" ";
+    for (int i = 0 ; i<f1;i++){
+        for (int j = 0 ; j < c2;j++){
+            cout<< v3[i][j] <<" ";
         }
         cout<<endl;
+
     }
+
 }
 
-void insert_short (int arr[],int tam){
-    for (int i= 1; i < tam; i++){
-        if(arr[i]<arr[i-1]){
-            swap(arr[i],arr[i-1]);
+
+
+void insertion_sort (int arr[], int tam){
+	 	int j;
+	 	int temp;
+
+	for (int i = 0; i < tam; i++){
+		j = i;
+		while (j > 0 && arr[j] < arr[j-1]){
+			  temp = arr[j];
+			  arr[j] = arr[j-1];
+			  arr[j-1] = temp;
+			  j--;
+			  }
+		}
+}
+
+void reversa(int arr[] , const int tam){
+
+    int temp;
+    for(int i =0 ; i < (tam/2);i++){
+      temp = arr[i];
+      arr[i] = arr[tam-1-i];
+      arr[tam-1-i] = temp;
+
+
+    }
+
+}
+void invert(int * arr, const int tam){
+
+    int temp;
+    for(int i =0 ; i < (tam/2);i++){
+      temp = *(arr+i);
+      *(arr+i) = *(arr+tam-1-i);
+      *(arr+tam-1-i) = temp;
+
+
+    }
+
+}
+
+int sumaRecursiva(int * arr, int tam){
+
+    int res = 0;
+    if (tam == 0){
+        return res;
+    }
+    else{
+    res = res + *arr;
+    arr++;
+    return res +sumaRecursiva(arr,tam-1);
+    }
+
+}
+
+void palindrome(string pal){
+
+    int tam = pal.size();
+    bool res = true;
+    for (int i = 0 ;i < tam/2 ;i++){
+        if (pal[i]==pal[tam-i-1])
+            res = res && true;
+        else{
+            res = false;
+            break;
         }
 
     }
-}
+    if(res == true){
+        cout<< "es un palindrome";
+    }
+    else
+        cout<<"no es un palindrome";
 
+}
 
 int main()
 {
-/*    int fila;
+    /*int fila;
     cout<<"ingrese numero de filas de la matriz: ";
     cin>>fila;
     int columna = 3;
-    //cout<<"ingrese numero de columna de la matriz: ";
-    //cin>>columna;
+    cout<<"ingrese numero de columna de la matriz: ";
+    cin>>columna;
     int tem;
 
-    int mat_a[fila][columna];
+    int mat_a[3][3];
     for (int i = 0 ; i<fila;i++){
         for (int j = 0 ; j < columna;j++){
             cout<<"ingrese valor de la matriz: ";
@@ -157,10 +220,10 @@ int main()
     cout<<"ingrese numero de filas de la matriz: ";
     cin>>fil;
     int col=3;
-    //cout<<"ingrese numero de columna de la matriz: ";
-    //cin>>col;
+    cout<<"ingrese numero de columna de la matriz: ";
+    cin>>col;
 
-    int mat_b[fil][col];
+    int mat_b[3][3];
     for (int i = 0 ; i<fil;i++){
         for (int j = 0 ; j < col;j++){
             cout<<"ingrese valor de la matriz: ";
@@ -171,6 +234,8 @@ int main()
         }
 
     }
+
+    int mat_c[3][3];
 
 
     for (int i = 0 ; i<fila;i++){
@@ -191,7 +256,7 @@ int main()
 
     cout<<endl;
 
-    mul_mat(mat_a,mat_b,fila,columna,fil,col);
+    multiplicacion(mat_a,mat_b,mat_c,fila,columna,fil,col);
 */
     //float m = 1;
     //cout<<millas_k(m)<<endl;
@@ -205,5 +270,29 @@ int main()
     //swap_num(x,y);
     //swap_pun(&x,&y);
     //cout<<x<<"  "<<y;
+    int tam = 4;
+    int arr[tam]={3,1,2,4};
+    for(int i =0 ; i < tam ;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    /*
+    invert(arr,tam);
+    for(int i =0 ; i < tam ;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    reversa(arr,tam);
+        for(int i =0 ; i < tam ;i++){
+        cout<<arr[i]<<" ";
+    }*/
+    //cout<<sumaRecursiva(arr,tam);
+    //string pal = "aviva";
+    //palindrome(pal);
+    insertion_sort(arr,tam);
+    for(int i =0 ; i < tam ;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
     return 0;
 }
