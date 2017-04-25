@@ -101,6 +101,7 @@ void swap_pun (int * x , int * y){
 }
 
 void multiplicacion ( int v1[][3] , int v2[][3] ,int v3[][3], int f1 ,int c1 , int f2 , int c2){
+
     for (int i = 0 ; i < f1 ; i++ ){
         for (int j = 0 ; i < c2 ; j++)
             for (int k = 0 ; k < f2 ; k++ ){
@@ -134,6 +135,33 @@ void insertion_sort (int arr[], int tam){
 			  }
 		}
 }
+
+void merge(int *arr, int size1, int size2) {
+    int temp[size1+size2];
+    int ptr1=0, ptr2=0;
+
+    while (ptr1+ptr2 < size1+size2) {
+        if (ptr1 < size1 && arr[ptr1] <= arr[size1+ptr2] || ptr1 < size1 && ptr2 >= size2)
+            temp[ptr1+ptr2] = arr[ptr1++];
+
+        if (ptr2 < size2 && arr[size1+ptr2] < arr[ptr1] || ptr2 < size2 && ptr1 >= size1)
+            temp[ptr1+ptr2] = arr[size1+ptr2++];
+    }
+
+    for (int i=0; i < size1+size2; i++)
+        arr[i] = temp[i];
+}
+
+void mergeSort(int *arr, int size) {
+    if (size == 1)
+        return;
+
+    int size1 = size/2, size2 = size-size1;
+    mergeSort(arr, size1);
+    mergeSort(arr+size1, size2);
+    merge(arr, size1, size2);
+}
+
 
 void reversa(int arr[] , const int tam){
 
@@ -271,7 +299,7 @@ int main()
     //swap_pun(&x,&y);
     //cout<<x<<"  "<<y;
     int tam = 4;
-    int arr[tam]={3,1,2,4};
+    int arr[4]={3,1,2,4};
     for(int i =0 ; i < tam ;i++){
         cout<<arr[i]<<" ";
     }
@@ -289,7 +317,8 @@ int main()
     //cout<<sumaRecursiva(arr,tam);
     //string pal = "aviva";
     //palindrome(pal);
-    insertion_sort(arr,tam);
+    //insertion_sort(arr,tam);
+    mergeSort(arr,tam);
     for(int i =0 ; i < tam ;i++){
         cout<<arr[i]<<" ";
     }
